@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Siraat</string>
+    <string name="title_activity_main">Siraat</string>
+    <string name="package_name">com.siraat.app</string>
+    <string name="custom_url_scheme">com.siraat.app</string>
+</resources>

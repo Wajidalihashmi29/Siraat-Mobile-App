@@ -1,0 +1,807 @@
+@font-face {
+  font-family: 'Mono45 Headline';
+  src: local('Mono45 Headline Regular'), local('Mono45 Headline');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Digital Khatt IndoPak';
+  src: url('/fonts/digital-khatt-indopak.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Surah Name V2';
+  src: url('/fonts/surah-name-v2.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Surah Name Color V4';
+  src: url('/fonts/surah-name-color-v4.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Juz Name';
+  src: url('/fonts/juz-name.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'QPC V2 Bismillah';
+  src: url('/fonts/qpc-v2-p1.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+/* ==========================================================================
+   Quranic Calligraphy Webfonts (Indo-Pak Nastaleeq & Uthmani Naskh)
+   Resource: https://qul.tarteel.ai/resources/quran-script/59
+   ========================================================================== */
+@font-face {
+  font-family: 'IndopakNastaleeq';
+  src: url('/fonts/indopak-nastaleeq.woff2') format('woff2'),
+       url('/fonts/indopak-nastaleeq.ttf') format('truetype'),
+       url('https://static-cdn.tarteel.ai/qul/fonts/nastaleeq/Hanafi/normal-v4.2.2/with-waqf-lazmi/font.woff2') format('woff2'),
+       url('https://static-cdn.tarteel.ai/qul/fonts/nastaleeq/Hanafi/normal-v4.2.2/with-waqf-lazmi/font.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AlQuran IndoPak by QuranWBW';
+  src: url('/fonts/indopak-nastaleeq.woff2') format('woff2'),
+       url('/fonts/indopak-nastaleeq.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jameel Noori Nastaleeq';
+  src: local('Jameel Noori Nastaleeq'),
+       local('Jameel Noori Nastaleeq Regular'),
+       local('JameelNooriNastaliq'),
+       url('/fonts/jameel-noori-nastaleeq.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/jameel-noori@1.1.2/fonts/jameel-noori-nastaleeq4.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 125%;
+}
+
+@font-face {
+  font-family: 'Jameel Noori Nastaleeq Regular';
+  src: local('Jameel Noori Nastaleeq Regular'),
+       local('Jameel Noori Nastaleeq'),
+       url('/fonts/jameel-noori-nastaleeq.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/jameel-noori@1.1.2/fonts/jameel-noori-nastaleeq4.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 125%;
+}
+
+@font-face {
+  font-family: 'JameelNooriNastaliq';
+  src: local('JameelNooriNastaliq'),
+       url('/fonts/jameel-noori-nastaleeq.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/jameel-noori@1.1.2/fonts/jameel-noori-nastaleeq4.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 125%;
+}
+
+.quran-indopak-fallback {
+  font-family: 'IndopakNastaleeq', 'AlQuran IndoPak by QuranWBW', serif;
+}
+
+html[lang="ur"] body {
+  font-family: var(--font-urdu, 'Jameel Noori Nastaleeq Regular', 'Jameel Noori Nastaleeq', serif);
+  word-spacing: 0.26em;
+  font-synthesis: none;
+}
+
+html[lang="ur"] body :where(
+  h1, h2, h3, h4, h5, h6,
+  p, span, strong, small, label, a, button, li,
+  input, textarea, select, option
+):not([lang="ar"]):not([data-preserve-font]):not(.ayah-num):not(.quran-reader *):not(.settings-preview-card *):not(.selection-card-preview-box *) {
+  font-family: var(--font-urdu, 'Jameel Noori Nastaleeq Regular', 'Jameel Noori Nastaleeq', serif) !important;
+  font-synthesis: none;
+  line-height: 2.15;
+  letter-spacing: 0;
+  word-spacing: 0.26em;
+}
+
+html[lang="ur"] body :where(h1, h2, h3, h4, h5, h6):not(.quran-reader *) {
+  line-height: 1.9;
+}
+
+html[lang="ur"] .auth-hero-brand,
+html[lang="ur"] .auth-main-brand,
+html[lang="ur"] .auth-hero-copy em {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  direction: ltr;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+html[lang="ur"] .top-nav-logo {
+  line-height: normal;
+}
+
+html[lang="ur"] .top-nav {
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 10px;
+  --space-4: 16px;
+  --space-5: 26px;
+  --space-6: 42px;
+  --space-7: 68px;
+  --space-8: 110px;
+}
+
+html[lang="ur"] .top-nav-link span,
+html[lang="ur"] .top-nav-dropdown-item span,
+html[lang="ur"] .top-nav-actions span {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  word-spacing: 0.2em;
+}
+
+html[lang="ur"] .top-nav-brand-text {
+  line-height: normal;
+  word-spacing: normal;
+}
+
+html[lang="ur"] .top-nav-title {
+  font-family: var(--font-display) !important;
+  font-size: 20.35px;
+  line-height: normal;
+  letter-spacing: 0.01em;
+  word-spacing: normal;
+}
+
+html[lang="ur"] .top-nav-subtitle {
+  font-size: 10.88px;
+  line-height: normal;
+  letter-spacing: 0.08em;
+  word-spacing: normal;
+}
+
+html[lang="ur"] input,
+html[lang="ur"] textarea,
+html[lang="ur"] select,
+html[lang="ur"] button {
+  font-family: inherit;
+}
+
+html[lang="ur"] [lang="ar"]:not([data-interface-language]),
+html[lang="ur"] [lang="ar"]:not([data-interface-language]) *,
+html[lang="ur"] [data-no-translate][lang="ar"],
+html[lang="ur"] [data-no-translate][lang="ar"] * {
+  word-spacing: normal !important;
+}
+
+html[lang="ur"] [data-interface-language],
+html[lang="ur"] [data-no-translate] [data-interface-language] {
+  font-family: var(--font-urdu, 'Jameel Noori Nastaleeq Regular', 'Jameel Noori Nastaleeq', serif) !important;
+  line-height: 2.15;
+  word-spacing: 0.26em !important;
+}
+
+html[dir="rtl"] input[type="email"],
+html[dir="rtl"] input[type="password"],
+html[dir="rtl"] input[type="number"],
+html[dir="rtl"] input[type="date"],
+html[dir="rtl"] input[inputmode="numeric"],
+html[dir="rtl"] input[inputmode="decimal"] {
+  direction: ltr;
+  text-align: right;
+}
+
+/* Ensure Urdu characters anywhere inside Inter / sans-serif containers use Jameel Noori Nastaleeq */
+@font-face {
+  font-family: 'Inter';
+  src: local('Jameel Noori Nastaleeq Regular'),
+       local('Jameel Noori Nastaleeq'),
+       local('JameelNooriNastaliq'),
+       url('/fonts/jameel-noori-nastaleeq.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+.font-indopak,
+.script-indopak,
+.indopak-nastaleeq {
+  font-family: var(--font-quran-indopak, 'IndopakNastaleeq', 'AlQuran IndoPak by QuranWBW', serif);
+  direction: rtl;
+}
+
+.font-uthmani,
+.script-uthmani,
+.uthmani-naskh {
+  font-family: var(--font-quran-uthmani, 'Amiri Quran', 'Amiri', serif);
+  direction: rtl;
+}
+
+/* All Urdu text across the application */
+[lang="ur"],
+.urdu-text,
+.font-urdu,
+.urdu-nastaliq,
+.preview-translation.urdu,
+.mushaf-trans-line.urdu {
+  font-family: var(--font-urdu, 'Jameel Noori Nastaleeq Regular', 'Jameel Noori Nastaleeq', 'JameelNooriNastaliq', serif) !important;
+  direction: rtl;
+  letter-spacing: 0;
+  word-spacing: 0.2em;
+}
+
+html[dir="rtl"] .loc-tabs-indicator {
+  right: 5px;
+  left: auto;
+}
+
+html[dir="rtl"] .loc-tabs[data-pos="1"] .loc-tabs-indicator {
+  transform: translateX(-100%);
+}
+
+html[dir="rtl"] .home-back-btn:hover {
+  transform: translateX(2px);
+}
+
+html[dir="rtl"] .home-card:hover .home-card-cta svg {
+  transform: translateX(-4px);
+}
+
+.urdu-text {
+  display: inline-block;
+  direction: rtl;
+  font-size: 1.55em;
+  line-height: 1.35;
+  vertical-align: -0.08em;
+  font-weight: 600;
+}
+
+/* Authentic Ayah End Medallion (Replaces raw overlapping ﴿...﴾ symbols) */
+.ayah-end-medallion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 1.4em;
+  height: 1.4em;
+  margin: 0 0.35em;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 1.5px solid #d4af37;
+  background: radial-gradient(circle at 35% 35%, #fffdf7 30%, #f6e8c3 100%);
+  box-shadow: 0 1px 3px rgba(13, 53, 50, 0.12), inset 0 0 0 1px rgba(212, 175, 55, 0.3);
+  user-select: none;
+  direction: ltr !important;
+}
+
+.ayah-end-medallion::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  border: 1px dotted rgba(160, 122, 16, 0.55);
+}
+
+.ayah-end-medallion .ayah-num {
+  font-family: 'Amiri', 'Traditional Arabic', 'Arial', serif;
+  font-size: 0.55em;
+  font-weight: 700;
+  color: #634706;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Universal Custom Dropdown Styling */
+.custom-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-select-wrapper select,
+select.app-select,
+.settings-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 12px 42px 12px 16px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid rgba(13, 53, 50, 0.18);
+  background-color: #ffffff;
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--teal-950);
+  outline: none;
+  transition: border-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease, background var(--dur-fast) ease;
+  cursor: pointer;
+  box-shadow: 0 2px 5px -1px rgba(13, 53, 50, 0.05);
+}
+
+.custom-select-wrapper select:hover,
+.settings-select:hover {
+  border-color: rgba(42, 90, 86, 0.45);
+  background-color: #fcfefd;
+}
+
+.custom-select-wrapper select:focus,
+.settings-select:focus {
+  border-color: var(--gold-600);
+  box-shadow: 0 0 0 3.5px rgba(212, 175, 55, 0.22);
+  background-color: #ffffff;
+}
+
+.custom-select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--teal-700);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.custom-select-wrapper:focus-within .custom-select-arrow {
+  color: var(--gold-600);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+select option {
+  padding: 12px 16px;
+  background: #ffffff;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+html[lang="ur"] {
+  font-size: 18.5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: var(--bg-main);
+  background-image: var(--gradient-mesh);
+  background-attachment: fixed;
+  color: var(--ink);
+  line-height: var(--leading);
+  overflow-x: hidden;
+}
+
+[lang="ar"],
+[dir="rtl"][lang="ar"] {
+  font-family: var(--font-arabic, "Amiri Quran", "Traditional Arabic", serif);
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-status-bar {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(520px, calc(100vw - 32px));
+  padding: 11px 14px;
+  border: 1px solid rgba(20, 85, 80, .22);
+  border-radius: 14px;
+  color: var(--teal-950);
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 12px 32px rgba(13, 53, 50, .18);
+}
+.app-status-bar.is-offline { color: #704f08; background: #fff8df; border-color: #e0b84f; }
+.app-status-bar span { flex: 1; font-size: .84rem; line-height: 1.45; }
+.app-status-bar button { padding: 7px 11px; border: 0; border-radius: 9px; color: #fff; background: var(--teal-700); }
+.app-status-bar .app-status-dismiss {
+  padding: 6px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+.app-status-bar .app-status-dismiss:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 600px) {
+  .app-status-bar { right: 10px; bottom: 10px; left: 10px; max-width: none; }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 53, 50, 0.2);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal-600);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--gold-100);
+  color: var(--teal-900);
+}
+
+/* ==========================================================================
+   Shared Modern Primitives & Glassmorphism
+   ========================================================================== */
+
+/* ---------- Glass Card ---------- */
+.glass-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) ease, border-color var(--dur-base) ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: var(--shadow-md);
+}
+
+.glass-card-dark {
+  background: var(--surface-glass-dark);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(231, 200, 103, 0.2);
+  border-radius: var(--radius-lg);
+  color: var(--ivory);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 48px;
+  padding: 0 var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background var(--dur-fast) ease,
+    border-color var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease,
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-900) 100%);
+  color: var(--gold-100);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--teal-800) 0%, var(--teal-950) 100%);
+  box-shadow: var(--shadow-md);
+  color: #ffffff;
+}
+
+.btn-gold {
+  background: var(--gradient-gold);
+  color: var(--teal-950);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-gold:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--gold-400) 0%, var(--gold-600) 100%);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border-color: var(--border-strong);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--teal-50);
+  border-color: var(--teal-600);
+  color: var(--teal-900);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  min-height: 0;
+  color: var(--teal-700);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--gold-400);
+  text-underline-offset: 3px;
+}
+
+.btn-link:hover:not(:disabled) {
+  color: var(--gold-700);
+}
+
+/* ---------- Spinner ---------- */
+.spinner {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Icon tile ---------- */
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--tile-sm);
+  height: var(--tile-sm);
+  border-radius: var(--radius-sm);
+  background: var(--teal-50);
+  color: var(--teal-700);
+}
+
+.icon-tile svg {
+  width: var(--icon-md);
+  height: var(--icon-md);
+}
+
+.icon-tile--md {
+  width: var(--tile-md);
+  height: var(--tile-md);
+  border-radius: var(--radius-md);
+}
+
+.icon-tile--md svg {
+  width: var(--icon-lg);
+  height: var(--icon-lg);
+  stroke-width: 1.5;
+}
+
+/* ---------- Alerts ---------- */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  animation: rise var(--dur-base) var(--ease-out);
+}
+
+.alert svg {
+  flex-shrink: 0;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  margin-top: 3px;
+}
+
+.alert-error {
+  background: var(--error-bg);
+  color: var(--error);
+  border: 1px solid var(--error-border);
+}
+
+.alert-success {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid var(--success-border);
+}
+
+.alert-info {
+  background: var(--gold-100);
+  color: var(--teal-900);
+  border: 1px solid var(--border-gold);
+}
+
+.alert-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ---------- Shared animations ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(16px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: rgba(3, 18, 17, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fade var(--dur-fast) ease;
+}
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  animation: pop var(--dur-base) var(--ease-spring);
+}
+
+.modal-card h3 {
+  margin: var(--space-4) 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: var(--leading-tight);
+  color: var(--ink);
+}
+
+.modal-card p {
+  margin: 0 0 var(--space-5);
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tile-sm);
+  height: var(--tile-sm);
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--muted);
+  transition: background var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+
+.modal-close:hover {
+  background: var(--teal-50);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

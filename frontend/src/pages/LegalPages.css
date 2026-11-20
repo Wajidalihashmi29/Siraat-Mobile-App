@@ -1,0 +1,156 @@
+.legal-container {
+  min-height: 100vh;
+  background-color: var(--bg-main, #f7f5ef);
+  color: var(--ink, #111c1b);
+  padding: 1.5rem 1rem 4rem;
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+}
+
+.legal-content-card {
+  max-width: 768px;
+  margin: 0 auto;
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, rgba(13, 53, 50, 0.1));
+  border-radius: 16px;
+  padding: 2.25rem 1.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.legal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border, rgba(13, 53, 50, 0.08));
+  padding-bottom: 1.25rem;
+}
+
+.legal-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border, rgba(13, 53, 50, 0.15));
+  background: var(--surface-subtle, #faf8f3);
+  color: var(--teal-800, #0d3532);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.legal-back-btn:hover {
+  background: var(--teal-50, #f2f9f8);
+  border-color: var(--teal-600, #1d635f);
+}
+
+.legal-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--teal-900, #072220);
+  margin: 0;
+}
+
+.legal-subtitle {
+  font-size: 0.875rem;
+  color: var(--muted, #536462);
+  margin-top: 0.25rem;
+}
+
+.legal-body {
+  line-height: 1.75;
+  font-size: 0.975rem;
+}
+
+.legal-body h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--teal-800, #0d3532);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legal-body p {
+  margin-bottom: 1rem;
+  color: #2c3e3c;
+}
+
+.legal-body ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.legal-body li {
+  margin-bottom: 0.5rem;
+  color: #2c3e3c;
+}
+
+.legal-badge {
+  display: inline-block;
+  background: var(--teal-50, #f2f9f8);
+  color: var(--teal-700, #144b47);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border: 1px solid var(--teal-100, #dff0ee);
+}
+
+.legal-highlight-box {
+  background: var(--surface-subtle, #faf8f3);
+  border-left: 4px solid var(--teal-600, #1d635f);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.25rem 0;
+}
+
+.about-hero-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.about-arabic-title {
+  font-family: "Amiri", "Amiri Quran", serif;
+  font-size: 3rem;
+  color: var(--teal-800, #0d3532);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.about-tagline {
+  font-size: 1.15rem;
+  color: var(--gold-700, #937324);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.about-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.about-link-card {
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--surface-subtle, #faf8f3);
+  border: 1px solid var(--border, rgba(13, 53, 50, 0.1));
+  text-decoration: none;
+  color: var(--teal-900, #072220);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.about-link-card:hover {
+  background: var(--teal-50, #f2f9f8);
+  border-color: var(--teal-500, #29807a);
+  transform: translateY(-2px);
+}
